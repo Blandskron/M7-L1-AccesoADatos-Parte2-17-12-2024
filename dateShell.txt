@@ -1,0 +1,69 @@
+python manage.py shell
+
+from hotel.models import Cliente, Habitacion
+from datetime import date
+
+
+cliente1 = Cliente(
+    nombre="Juan",
+    apellido="Pérez",
+    correo="juan.perez@example.com",
+    telefono="123456789",
+    fecha_ingreso=date(2024, 1, 1),
+    fecha_salida=date(2024, 1, 7)
+)
+cliente1.save()
+
+cliente2 = Cliente(
+    nombre="Ana",
+    apellido="Gómez",
+    correo="ana.gomez@example.com",
+    telefono="987654321",
+    fecha_ingreso=date(2024, 1, 3),
+    fecha_salida=date(2024, 1, 10)
+)
+cliente2.save()
+
+cliente3 = Cliente(
+    nombre="Carlos",
+    apellido="López",
+    correo="carlos.lopez@example.com",
+    telefono="456123789",
+    fecha_ingreso=date(2024, 1, 5),
+    fecha_salida=date(2024, 1, 15)
+)
+cliente3.save()
+
+habitacion1 = Habitacion(
+    numero_habitacion="101",
+    tipo_habitacion="SIMPLE",
+    precio_por_noche=50.00,
+    disponible=True
+)
+habitacion1.save()
+
+habitacion2 = Habitacion(
+    numero_habitacion="102",
+    tipo_habitacion="GRANDE",
+    precio_por_noche=100.00,
+    disponible=False
+)
+habitacion2.save()
+
+habitacion3 = Habitacion(
+    numero_habitacion="201",
+    tipo_habitacion="SUITE",
+    precio_por_noche=200.00,
+    disponible=True
+)
+habitacion3.save()
+
+for cliente in Cliente.objects.all():
+    print(cliente)
+
+for habitacion in Habitacion.objects.all():
+    print(habitacion)
+
+
+
+exit()
